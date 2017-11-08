@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>parent-microservice-pom</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+	<name>parent-microservice-pom</name>
+	<description>Parent POM para projetos microserviços JAVA.</description>
+	<parent>
+		<groupId>br.com.danielfcastro</groupId>
+		<artifactId>parent-pom</artifactId>
+		<version>1.0</version>
+		<relativePath>../parent-pom/pom.xml</relativePath>
+	</parent>
+	<url>https://github.com/danielfcastro/parent-microservice-pom</url>
+	<scm>
+		<url>https://github.com/danielfcastro/parent-microservice-pom.git</url>
+	</scm>
+	<developers>
+		<developer>
+			<id>danielfcastro</id>
+			<name>Daniel Ferreira Castro</name>
+		</developer>
+	</developers>
+	<organization>
+		<name>danielfcastro</name>
+		<url>https://github.com/danielfcastro</url>
+	</organization>
+	<properties>
+		<!-- dependencies -->
+		<version.msf4j>2.4.0</version.msf4j>
+		<version.hystrix>1.5.12</version.hystrix>
+		<version.healthcheck>2.0.0</version.healthcheck>
+
+		<!-- tests dependencies -->
+		<version.junit>4.12</version.junit>
+		<version.hamcrest>1.3</version.hamcrest>
+		<version.hamcrest-bean>1.0.11</version.hamcrest-bean>
+		<version.powermock>1.6.5</version.powermock>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${version.junit}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-module-junit4</artifactId>
+				<scope>test</scope>
+				<version>${version.powermock}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.powermock</groupId>
+				<artifactId>powermock-api-mockito</artifactId>
+				<version>${version.powermock}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-all</artifactId>
+				<version>${version.hamcrest}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.exparity</groupId>
+				<artifactId>hamcrest-bean</artifactId>
+				<version>${version.hamcrest-bean}</version>
+				<scope>test</scope>
+				<exclusions>
+					<exclusion>
+						<groupId>org.hamcrest</groupId>
+						<artifactId>hamcrest-core</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.exparity</groupId>
+						<artifactId>exparity-bean</artifactId>
+					</exclusion>
+					<exclusion>
+						<artifactId>commons-lang</artifactId>
+						<groupId>commons-lang</groupId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-api</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.wso2.msf4j</groupId>
+			<artifactId>msf4j-core</artifactId>
+			<version>${version.msf4j}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.msf4j</groupId>
+			<artifactId>msf4j-swagger</artifactId>
+			<version>${version.msf4j}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.msf4j</groupId>
+			<artifactId>msf4j-analytics</artifactId>
+			<version>${version.msf4j}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-core</artifactId>
+			<version>${version.hystrix}</version>
+		</dependency>
+	</dependencies>
+</project>
