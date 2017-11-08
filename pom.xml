@@ -114,4 +114,8 @@
 			<version>${version.hystrix}</version>
 		</dependency>
 	</dependencies>
+	<issueManagement>
+		<system>GITHUB</system>
+		<url>https://github.com/danielfcastro/parent-microservice-pom/issues</url>
+	</issueManagement>
 </project>
